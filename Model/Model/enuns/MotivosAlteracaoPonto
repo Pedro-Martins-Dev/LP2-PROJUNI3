@@ -1,3 +1,5 @@
+package Model.enuns;
+
 public enum MotivosAlteracaoPonto
 {
     ESQUECEU_DE_REGISTRAR,

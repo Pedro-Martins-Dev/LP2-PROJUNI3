@@ -1,47 +1,29 @@
-import Enuns.*;
 import java.time.LocalDate;
 import java.util.Map;
 import java.util.ArrayList;
 import java.time.LocalDateTime;
 
-public class Funcionario extends Pessoa implements calcularHorasDia
+import Model.enuns.*;
+
+public class Funcionario extends Pessoa
 {
     private LocalDateTime horasExtras;
     private LocalDateTime horaNegativas;
     private LocalDateTime horasTrabalhadasMes;
     private LocalDateTime horasDia;
+    private int senha;
     //o local date vai guardar os dias das batidas e o local time vai guardar os horários da batidas.
     private Map<LocalDate, ArrayList<LocalDateTime>> horasTrabalhadasDia;
     
-    Funcionario(String nome, long cpf, LocalDate dataNascimento, Genero genero, String cargo, Endereco endereco, double cargaHoraria, LocalDateTime horasExtras, LocalDateTime horaNegativas, LocalDateTime horasTrabalhadasMes, LocalDateTime horasDia, arraylist<LocalTime> horasTrabalhadasDia) {
+    Funcionario(String nome, long cpf, LocalDate dataNascimento, Genero genero, Cargos cargo, Endereco endereco, double cargaHoraria, LocalDateTime horasExtras, LocalDateTime horaNegativas, LocalDateTime horasTrabalhadasMes, LocalDateTime horasDia, int senha, Map<LocalDate, ArrayList<LocalDateTime>> horasTrabalhadasDia) 
+    {
         super(nome, cpf, dataNascimento, genero, cargo, endereco, cargaHoraria);
         this.horasExtras = horasExtras;
         this.horaNegativas = horaNegativas;
         this.horasTrabalhadasMes = horasTrabalhadasMes;
         this.horasDia = horasDia;
+        this.senha = senha;
         this.horasTrabalhadasDia = horasTrabalhadasDia;
-    }
-
-    public Map<LocalDate, ArrayList<LocalDateTime>> calcularHorasDia(Map<LocalDate, ArrayList<LocalDateTime>> horasTrabalhadasDia, LocalDate EntradaPonto)
-    {
-        if(horasTrabalhadasDia.size() == 0)
-        {
-            return null;
-        }
-        else if(horasTrabalhadasDia.size() <=4)
-        {
-            int batidasDia = 1;
-
-            switch (horasDia.size())
-            {
-                case 1:
-                    horasDia.add(horasTrabalhadasDia.get(0));
-                    break;
-            }
-        }
-
-
-        return horasTrabalhadasDia;
     }
 
     public LocalDateTime getHorasExtras()
@@ -82,6 +64,16 @@ public class Funcionario extends Pessoa implements calcularHorasDia
     public void setHorasDia(LocalDateTime horasDia)
     {
         this.horasDia = horasDia;
+    }
+
+    public int getSenha() 
+    {
+        return senha;
+    }
+
+    public void setSenha(int senha) 
+    {
+        this.senha = senha;
     }
 
     public Map<LocalDate, ArrayList<LocalDateTime>> getHorasTrabalhadasDia()

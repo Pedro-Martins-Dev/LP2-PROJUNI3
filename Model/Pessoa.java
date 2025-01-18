@@ -1,5 +1,7 @@
 import java.time.LocalDate;
-import Enuns.*;
+
+import Model.enuns.Genero;
+import Model.enuns.*;
 
 public abstract class Pessoa
 {
@@ -7,11 +9,11 @@ public abstract class Pessoa
     private long cpf;
     private LocalDate dataNascimento;
     private Genero genero;
-    private String cargo;
+    private Cargos cargo;
     private Endereco endereco;
     private double cargaHoraria;
 
-    public Pessoa(String nome, long cpf, LocalDate dataNascimento, Genero genero, String cargo, Endereco endereco, double cargaHoraria)
+    public Pessoa(String nome, long cpf, LocalDate dataNascimento, Genero genero, Cargos cargo, Endereco endereco, double cargaHoraria)
     {
         this.nome = nome;
         this.cpf = cpf;
@@ -72,12 +74,12 @@ public abstract class Pessoa
         this.endereco = endereco;
     }
 
-    public String getCargo() 
+    public Cargos getCargo() 
     {
         return cargo;
     }
 
-    public void setCargo(String cargo) 
+    public void setCargo(Cargos cargo) 
     {
         this.cargo = cargo;
     }
