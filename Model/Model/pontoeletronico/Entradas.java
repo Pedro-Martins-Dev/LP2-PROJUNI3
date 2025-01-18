@@ -1,3 +1,5 @@
+package Model.pontoeletronico;
+
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
@@ -25,6 +27,7 @@ public class Entradas
         {
             int cpf = scanner.nextInt();
             scanner.nextLine();
+            
             return cpf;
         }
         catch (Exception e)
@@ -88,12 +91,15 @@ public class Entradas
     public static Cargos entradaCargo()
     {
         System.out.println("""
-                \nQual o cargo do funcionario?\n 
+                \nQual o cargo do funcionario?
+                 
                 1 - Departamento Pessoal
                 2 - Desenvolvedor
                 3 - Gestor
                 4 - Lider
                 5 - Analista
+
+                Insira o número correspondente ao cargo do funcionário: 
                 \n""");
 
             int cargofun;
@@ -178,7 +184,7 @@ public class Entradas
     {
         System.out.println("""
                 Qual o seu tipo de usuário?
-                1 -  Departamento Pessoal
+                1 - Departamento Pessoal
                 2 - Desenvolvedor
                 3 - Gestor
                 4 - Lider
@@ -192,7 +198,6 @@ public class Entradas
             case 1:
                 System.out.println("Você é funcionário do Departamento Pessoal");
                 return true;
-
             case 2:
                 System.out.println("Você é funcionário Desenvolvedor");
                 return false;

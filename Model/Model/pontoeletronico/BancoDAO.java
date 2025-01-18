@@ -1,9 +1,11 @@
+package Model.pontoeletronico;
+
 import java.util.ArrayList;
 
 public class BancoDAO 
 {
     private static BancoDAO instance;
-    private static ArrayList<Pessoa> funcionarios;
+    private static ArrayList<Funcionario> funcionarios;
 
     public static BancoDAO getInstance() 
     {
@@ -14,7 +16,7 @@ public class BancoDAO
         return instance;
     }
 
-    public ArrayList<Pessoa> getArrayFuncionarios() 
+    public ArrayList<Funcionario> getArrayFuncionarios() 
     {
         if(instance == null) 
         {
@@ -26,7 +28,7 @@ public class BancoDAO
 
     private BancoDAO() 
     {
-        funcionarios = new ArrayList<Pessoa>();
+        funcionarios = new ArrayList<Funcionario>();
     }
 
 }

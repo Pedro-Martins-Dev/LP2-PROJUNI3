@@ -1,3 +1,5 @@
+package Model.pontoeletronico;
+
 public class Endereco 
 {
     private String rua;
