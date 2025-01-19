@@ -10,7 +10,7 @@ public class Operacoes
 {
     public static Funcionario cadastrarFuncionario()
     {
-        Funcionario funcionario = new Funcionario(null, 0, null, null, null, null, 0, null, null, null, null, 0, null);
+        Funcionario funcionario = new Funcionario(null, 0, null, null, null, null, 0, null, null, null, null, 0, null, null);
 
         funcionario.setNome(Entradas.entradaNome());
         funcionario.setCpf(Entradas.entradaCPF());
@@ -18,25 +18,25 @@ public class Operacoes
         funcionario.setGenero(Entradas.entradaGenero());
         funcionario.setCargo(Entradas.entradaCargo());
         funcionario.setEndereco(Entradas.entradaEndereco());
-        funcionario.setCargaHoraria(Entradas.entradaCargaHoraria());
+        funcionario.setCargaHorariaDiaria(Entradas.entradaCargaHoraria());
 
         return funcionario;
     }
 
-    public static Funcionario procurarFuncionario() 
+    public static Funcionario procurarFuncionario(BancoDAO bancoDAO) 
     {
         try 
         {
             System.out.println("Digite o CPF do funcionário que deseja procurar:");
             int cpf = Entradas.entradaCPF();
     
-            if (BancoDAO.getInstance().getArrayFuncionarios().size() == 0) 
+            if (bancoDAO.getArrayFuncionarios().size() == 0) 
             {
                 throw new Exception("Funcionário não encontrado.");
             } 
             else 
             {
-                for (Funcionario funcionario : BancoDAO.getInstance().getArrayFuncionarios()) 
+                for (Funcionario funcionario : bancoDAO.getArrayFuncionarios()) 
                 {
                     if (funcionario != null && funcionario.getCpf() == cpf) 
                     {
@@ -139,5 +139,32 @@ public class Operacoes
             } 
         }
     }
+
+    public static void imprimirFuncionarios(BancoDAO bancoDAO)
+    {
+        System.out.println(bancoDAO.getArrayFuncionarios().size());
+        System.out.println("Funcionários cadastrados:");
+
+        bancoDAO.getArrayFuncionarios().forEach(funcionario -> 
+        {
+            System.out.println("\n");
+            System.out.println("Nome: " + funcionario.getNome());
+            System.out.println("CPF: " + funcionario.getCpf());
+            System.out.println("Data de nascimento: " + funcionario.getDataNascimento());
+            System.out.println("Gênero: " + funcionario.getGenero());
+            System.out.println("Cargo: " + funcionario.getCargo());
+            System.out.println("Endereço: " + funcionario.getEndereco().getRua() + ", " + funcionario.getEndereco().getNumero() + ", " + funcionario.getEndereco().getBairro() + ", " + funcionario.getEndereco().getCidade());
+            System.out.println("Carga horária: " + funcionario.getCargaHorariaDiaria());
+        });
+    }
+
+    public static void gerarRelatorio(Funcionario funcionario)
+    {
+        System.out.println("Relatório de frequência do funcionário " + funcionario.getNome());
+        System.out.println("Horas extras: " + BancoHoras.calcularHorasExtras(funcionario));
+        System.out.println("Horas negativas: " + BancoHoras.calcularHorasNegativas(funcionario));
+        BancoHoras.imprimirHorasTrabalhadas(funcionario);
+    }
 }
+
 

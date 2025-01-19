@@ -2,6 +2,7 @@ package Model.pontoeletronico;
 
 public class Endereco 
 {
+
     private String rua;
     private int numero;
     private String bairro;

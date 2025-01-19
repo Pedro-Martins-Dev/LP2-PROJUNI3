@@ -12,9 +12,9 @@ public abstract class Pessoa
     private Genero genero;
     private Cargos cargo;
     private Endereco endereco;
-    private double cargaHoraria;
+    private double cargaHorariaDiaria;
 
-    public Pessoa(String nome, long cpf, LocalDate dataNascimento, Genero genero, Cargos cargo, Endereco endereco, double cargaHoraria)
+    public Pessoa(String nome, long cpf, LocalDate dataNascimento, Genero genero, Cargos cargo, Endereco endereco, double cargaHorariaDiaria)
     {
         this.nome = nome;
         this.cpf = cpf;
@@ -22,7 +22,7 @@ public abstract class Pessoa
         this.genero = genero;
         this.cargo = cargo;
         this.endereco = endereco;
-        this.cargaHoraria = cargaHoraria;
+        this.cargaHorariaDiaria = cargaHorariaDiaria;
     }
 
     public String getNome() 
@@ -85,13 +85,13 @@ public abstract class Pessoa
         this.cargo = cargo;
     }
 
-    public double getCargaHoraria() 
+    public double getCargaHorariaDiaria() 
     {
-        return cargaHoraria;
+        return cargaHorariaDiaria;
     }
 
-    public void setCargaHoraria(double cargaHoraria) 
+    public void setCargaHorariaDiaria(double cargaHorariaDiaria) 
     {
-        this.cargaHoraria = cargaHoraria;
+        this.cargaHorariaDiaria = cargaHorariaDiaria;
     }
 }

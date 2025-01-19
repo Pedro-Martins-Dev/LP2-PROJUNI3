@@ -20,21 +20,20 @@ public class Entradas
         return nome;
     }
 
-    public static int entradaCPF()
-    {
-        System.out.println("\nInsira o CPF (apenas numeros): ");
-        try
-        {
-            int cpf = scanner.nextInt();
-            scanner.nextLine();
-            
-            return cpf;
-        }
-        catch (Exception e)
-        {
-            System.out.println("\nCPF inválido. Insira apenas números.");
-            return entradaCPF();
-        }
+    public static int entradaCPF() 
+    { 
+        System.out.println("\nInsira o CPF (apenas números): "); 
+        String input = scanner.nextLine(); 
+        try 
+        { 
+            int cpf = Integer.parseInt(input); 
+            return cpf; 
+        } 
+        catch (NumberFormatException e) 
+        { 
+            System.out.println("\nCPF inválido. Insira apenas números."); 
+            return entradaCPF(); 
+        } 
     }
 
     public static LocalDate entradaDataNascimento() 
@@ -92,7 +91,7 @@ public class Entradas
     {
         System.out.println("""
                 \nQual o cargo do funcionario?
-                 
+
                 1 - Departamento Pessoal
                 2 - Desenvolvedor
                 3 - Gestor
@@ -100,7 +99,7 @@ public class Entradas
                 5 - Analista
 
                 Insira o número correspondente ao cargo do funcionário: 
-                \n""");
+                """);
 
             int cargofun;
             try
@@ -135,20 +134,20 @@ public class Entradas
     {
         Endereco endereco = new Endereco(null, 0, null, null, null);
 
-        System.out.println("Insira a rua: ");
+        System.out.println("\nInsira a rua: ");
         endereco.setRua(scanner.nextLine());
 
-        System.out.println("Insira o numero: ");
+        System.out.println("\nInsira o numero: ");
         endereco.setNumero(scanner.nextInt());
         scanner.nextLine();
 
-        System.out.println("Insira o bairro: ");
+        System.out.println("\nInsira o bairro: ");
         endereco.setBairro(scanner.nextLine());
 
-        System.out.println("Insira a cidade: ");
+        System.out.println("\nInsira a cidade: ");
         endereco.setCidade(scanner.nextLine());
 
-        System.out.println("Insira o cep: ");
+        System.out.println("\nInsira o cep: ");
         endereco.setCep(scanner.nextLine());
 
         return endereco;
@@ -156,7 +155,7 @@ public class Entradas
 
     public static double entradaCargaHoraria()
     {
-        System.out.println("\nInsira a carga horária: ");
+        System.out.println("\nInsira a carga horária diária: ");
         double cargaHoraria = scanner.nextDouble();
         scanner.nextLine();
 
