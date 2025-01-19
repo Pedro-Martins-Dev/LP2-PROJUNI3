@@ -1,8 +1,8 @@
 package Model.pontoeletronico;
 
-public class Endereco 
+public class Endereco implements java.io.Serializable
 {
-
+    private static final long serialVersionUID = 1L;
     private String rua;
     private int numero;
     private String bairro;

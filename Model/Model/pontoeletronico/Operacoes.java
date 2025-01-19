@@ -10,7 +10,7 @@ public class Operacoes
 {
     public static Funcionario cadastrarFuncionario()
     {
-        Funcionario funcionario = new Funcionario(null, 0, null, null, null, null, 0, null, null, null, null, 0, null, null);
+        Funcionario funcionario = new Funcionario(null, 0, null, null, null, null, 0, null, null, null, null, 0, null);
 
         funcionario.setNome(Entradas.entradaNome());
         funcionario.setCpf(Entradas.entradaCPF());
@@ -36,11 +36,11 @@ public class Operacoes
             } 
             else 
             {
-                for (Funcionario funcionario : bancoDAO.getArrayFuncionarios()) 
+                for (Pessoa funcionario : bancoDAO.getArrayFuncionarios()) 
                 {
                     if (funcionario != null && funcionario.getCpf() == cpf) 
                     {
-                        return funcionario;
+                        return (Funcionario) funcionario;
                     }
                 }
                 throw new Exception("Funcionário não encontrado.");
@@ -141,9 +141,9 @@ public class Operacoes
     }
 
     public static void imprimirFuncionarios(BancoDAO bancoDAO)
-    {
-        System.out.println(bancoDAO.getArrayFuncionarios().size());
+    {        
         System.out.println("Funcionários cadastrados:");
+        System.out.println("\nExistem" + bancoDAO.getArrayFuncionarios().size() + " funcionários cadastrados.");
 
         bancoDAO.getArrayFuncionarios().forEach(funcionario -> 
         {

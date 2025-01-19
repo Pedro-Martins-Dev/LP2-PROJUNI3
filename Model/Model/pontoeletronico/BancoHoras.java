@@ -12,7 +12,6 @@ import java.util.Scanner;
 
 public class BancoHoras
 {
-
     public static void imprimirHorasTrabalhadas(Funcionario funcionario) 
     { 
         Scanner scanner = new Scanner(System.in); 

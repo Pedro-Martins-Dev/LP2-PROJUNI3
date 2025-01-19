@@ -10,18 +10,18 @@ import java.util.ArrayList;
 
 public class BancoDAO implements Serializable
 {
-    private static ArrayList<Funcionario> funcionarios;
+    private static ArrayList<Pessoa> funcionarios;
 
     BancoDAO() 
     {
-        funcionarios = new ArrayList<Funcionario>();
+        funcionarios = new ArrayList<Pessoa>();
     }
 
-    public ArrayList<Funcionario> getArrayFuncionarios() 
+    public ArrayList<Pessoa> getArrayFuncionarios() 
     {
         if (funcionarios == null) 
         {
-            funcionarios = new ArrayList<Funcionario>();
+            funcionarios = new ArrayList<Pessoa>();
         }
 
         return funcionarios;
@@ -36,7 +36,10 @@ public class BancoDAO implements Serializable
     { 
         try (ObjectOutputStream saida = new ObjectOutputStream(new FileOutputStream(filename))) 
         { 
-            saida.writeObject(bancoDAO); 
+            for (Pessoa funcionario : bancoDAO.getArrayFuncionarios()) 
+            {
+                saida.writeObject(funcionario);
+            }
             System.out.println("Objeto serializado com sucesso!"); 
         } 
         catch (IOException e) 
@@ -49,9 +52,20 @@ public class BancoDAO implements Serializable
     { 
         try (ObjectInputStream entrada = new ObjectInputStream(new FileInputStream(serializado))) 
         { 
-            bancoDAO = (BancoDAO) entrada.readObject(); 
+            while(true)
+            {
+                try
+                {
+                    Pessoa funcionario = (Pessoa) entrada.readObject();
+                    bancoDAO.getArrayFuncionarios().add(funcionario);
+                }
+                catch (Exception e)
+                {
+                    break;
+                }
+            }  
         } 
-        catch (IOException | ClassNotFoundException e) 
+        catch (IOException e) 
         { 
             e.printStackTrace();
         }

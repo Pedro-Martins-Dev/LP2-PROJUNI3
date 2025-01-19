@@ -21,7 +21,7 @@ public class Main
             {
                 do
                 {
-                    Funcionario funcionario = new Funcionario(null, opcoes, null, null, null, null, opcoes, null, null, null, null, opcoes, null, null);
+                    Funcionario funcionario = new Funcionario(null, opcoes, null, null, null, null, opcoes, null, null, null, null, opcoes, null);
 
                     System.out.println("""
                     \nO que você deseja fazer?
@@ -103,10 +103,6 @@ public class Main
                             System.out.println("Opção inválida");
                             break;
                     }
-
-
-
-                    
                 } while (opcoes != 0);
 
             }
@@ -114,7 +110,7 @@ public class Main
             {
                 do
                 {
-                    Funcionario funcionario = new Funcionario(null, opcoes, null, null, null, null, opcoes, null, null, null, null, opcoes, null, null);
+                    Funcionario funcionario = new Funcionario(null, opcoes, null, null, null, null, opcoes, null, null, null, null, opcoes, null);
 
                     System.out.println("""
                     \nO que você deseja fazer?

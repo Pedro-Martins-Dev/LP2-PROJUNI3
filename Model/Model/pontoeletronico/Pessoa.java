@@ -1,11 +1,13 @@
 package Model.pontoeletronico;
 
+import java.io.Serializable;
 import java.time.LocalDate;
-import Model.enuns.Genero;
+
 import Model.enuns.*;
 
-public abstract class Pessoa
+public abstract class Pessoa implements Serializable
 {
+    private static final long serialVersionUID = 1L;
     private String nome;
     private long cpf;
     private LocalDate dataNascimento;
